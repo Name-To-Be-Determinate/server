@@ -13,7 +13,8 @@ exports.setter = exports.getter = void 0;
 const posts_1 = require("../models/posts");
 function getter(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const { type } = req.params;
+        var { type } = req.params;
+        type = type.toLowerCase();
         if (!/^(infos|virus)$/i.test(type))
             res.status(404).json({ message: "Not found" });
         try {

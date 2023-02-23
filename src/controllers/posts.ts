@@ -3,7 +3,8 @@ import { Request, Response } from 'express';
 import { InfosSchema, VirusSchema } from '../models/posts';
 
 export async function getter(req: Request, res: Response) {
-    const { type } = req.params;
+    var { type } = req.params;
+    type = type.toLowerCase();
 
     if (!/^(infos|virus)$/i.test(type)) res.status(404).json({ message: "Not found" });
 
